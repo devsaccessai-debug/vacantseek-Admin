@@ -5,6 +5,7 @@ import { motion } from "framer-motion"
 import { Menu } from "lucide-react"
 import { Sidebar } from "./Sidebar"
 import { MobileSidebar } from "./MobileSidebar"
+import { AdminDashboard } from "@/components/admin/AdminDashboard"
 import {
   sidebarSections,
   type SidebarItem as SidebarItemType,
@@ -66,21 +67,25 @@ export function DashboardLayout() {
           </h1>
         </header>
 
-        {/* Placeholder content */}
-        <main className="flex-1 overflow-y-auto p-6 sm:p-8">
-          <div className="mx-auto flex h-full max-w-3xl items-center justify-center">
-            <div className="w-full rounded-2xl border border-dashed border-slate-300 bg-white p-10 text-center shadow-sm">
-              <div className="mx-auto mb-4 grid size-12 place-items-center rounded-xl bg-gradient-to-br from-[#2563EB] to-[#38BDF8] text-white shadow-[0_0_18px_-4px_rgba(56,189,248,0.6)]">
-                {activeItem && <activeItem.icon className="size-6" />}
+        {/* Content */}
+        <main className="flex-1 overflow-y-auto bg-[#F5F8FC] p-4 sm:p-6 lg:p-8">
+          {activeRoute === "/admin-dashboard" ? (
+            <AdminDashboard />
+          ) : (
+            <div className="mx-auto flex h-full max-w-3xl items-center justify-center">
+              <div className="w-full rounded-2xl border border-dashed border-slate-300 bg-white p-10 text-center shadow-sm">
+                <div className="mx-auto mb-4 grid size-12 place-items-center rounded-xl bg-gradient-to-br from-[#2563EB] to-[#38BDF8] text-white shadow-[0_0_18px_-4px_rgba(56,189,248,0.6)]">
+                  {activeItem && <activeItem.icon className="size-6" />}
+                </div>
+                <h2 className="mb-1 text-xl font-semibold tracking-tight text-slate-900">
+                  {activeItem?.label}
+                </h2>
+                <p className="text-sm leading-relaxed text-slate-500">
+                  This section is coming soon.
+                </p>
               </div>
-              <h2 className="mb-1 text-xl font-semibold tracking-tight text-slate-900">
-                {activeItem?.label}
-              </h2>
-              <p className="text-sm leading-relaxed text-slate-500">
-                Select a sidebar section to begin.
-              </p>
             </div>
-          </div>
+          )}
         </main>
       </div>
     </div>
