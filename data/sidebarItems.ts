@@ -13,6 +13,10 @@ import {
   Folder,
   Megaphone,
   BookOpen,
+  CreditCard,
+  User,
+  UserCog,
+  HelpCircle,
   type LucideIcon,
 } from "lucide-react"
 
@@ -80,6 +84,15 @@ export const sidebarSections: SidebarSection[] = [
         icon: Megaphone,
       },
       { label: "Knowledge Base", route: "/knowledge-base", icon: BookOpen },
+    ],
+  },
+  {
+    title: "ACCOUNT",
+    items: [
+      { label: "Billing", route: "/billing", icon: CreditCard },
+      { label: "Profile", route: "/profile", icon: User },
+      { label: "Edit Profile", route: "/edit-profile", icon: UserCog },
+      { label: "Help & Guide", route: "/help-guide", icon: HelpCircle },
     ],
   },
 ]
